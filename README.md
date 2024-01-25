@@ -34,29 +34,37 @@ A fruit supplier wishes to build an application to print out invoices when custo
 1) Login screen for staff to login.
 2) Registration screen to registration fruit category.
 3) Registration screen to registration fruit item.
-⋅⋅* Fields: “Name”, “Unit” (kg, pcs, pack), “Price”
+- Fields: “Name”, “Unit” (kg, pcs, pack), “Price”
 4) Invoice screen to input purchase details (Transaction data).
-⋅⋅* Able to input customer name.
-⋅⋅* Able to input multiple fruits.
-⋅⋅* Able to Create, Edit and Delete Invoices.
-⋅⋅* Option/bonus: Able to print invoices.
+- Able to input customer name.
+- Able to input multiple fruits.
+- Able to Create, Edit and Delete Invoices.
+- Option/bonus: Able to print invoices.
 
 ## Test cases
 - Authentication:
-⋅⋅* testLoginWithIncorrectUserCode
-⋅⋅* testLoginWithIncorrectPassword
-⋅⋅* testLoginCorrect
+```
+- testLoginWithIncorrectUserCode
+- testLoginWithIncorrectPassword
+- testLoginCorrect
+```
 - Category:
-⋅⋅*-- testCreateCategory
-⋅⋅*-- testCreateCategoryWithIncorrectName
+```
+- testCreateCategory
+- testCreateCategoryWithIncorrectName
+```
 - Fruit:
-⋅⋅*-- testCreateFruitCorrectInput
-⋅⋅*-- testCreateFruitIncorrectName
-⋅⋅* testCreateFruitIncorrectPrice
+```
+- testCreateFruitCorrectInput
+- testCreateFruitIncorrectName
+- testCreateFruitIncorrectPrice
+```
 - Invoice:
-⋅⋅* testCreateCorrectInvoice
-⋅⋅* testCreateCorrectInvoiceIncorrectCustomerName
-⋅⋅* testCreateCorrectInvoiceIncorrectOrderFruit
-⋅⋅* testUpdateCorrectInvoice
-⋅⋅* testUpdateInvoiceIncorrectOrderFruit
-⋅⋅* testUpdateInvoiceIncorrectCustomerName
+```
+- testCreateCorrectInvoice
+- testCreateCorrectInvoiceIncorrectCustomerName
+- testCreateCorrectInvoiceIncorrectOrderFruit
+- testUpdateCorrectInvoice
+- testUpdateInvoiceIncorrectOrderFruit
+- testUpdateInvoiceIncorrectCustomerName
+```
