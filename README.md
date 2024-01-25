@@ -39,7 +39,7 @@ A fruit supplier wishes to build an application to print out invoices when custo
 - Able to input customer name.
 - Able to input multiple fruits.
 - Able to Create, Edit and Delete Invoices.
-- Option/bonus: Able to print invoices.
+- Able to print invoices.
 
 ## Test cases
 - Authentication:
