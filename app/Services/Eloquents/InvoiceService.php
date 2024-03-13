@@ -6,6 +6,7 @@ use App\DTOs\BaseDTO;
 use App\Repositories\Contracts\InvoiceRepositoryInterface;
 use App\Services\BaseService;
 use App\Services\Contracts\InvoiceServiceInterface;
+use Illuminate\Support\Facades\DB;
 
 class InvoiceService extends BaseService implements InvoiceServiceInterface
 {
@@ -17,20 +18,23 @@ class InvoiceService extends BaseService implements InvoiceServiceInterface
 
     public function createInvoice($data, $orderFruits)
     {
-        $invoice = $this->create($data);
+        DB::transaction(function () use ($data, $orderFruits) {
+            $invoice = $this->create($data);
+            $invoice->fruits()->attach($orderFruits);
 
-        $invoice->fruits()->attach($orderFruits);
-
-        return $invoice;
+            return $invoice;
+        });
     }
 
     public function updateInvoice($data, $id, $orderFruits)
     {
-        $invoice = $this->find($id);
-        $this->update($data, $id);
-        $invoice->fruits()->sync($orderFruits);
+        DB::transaction(function () use ($data, $id, $orderFruits) {
+            $invoice = $this->find($id);
+            $this->update($data, $id);
+            $invoice->fruits()->sync($orderFruits);
 
-        return $invoice;
+            return $invoice;
+        });
     }
 
     public function getInvoice($id)
