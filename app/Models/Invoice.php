@@ -14,6 +14,10 @@ class Invoice extends Model
         'user_id'
     ];
 
+    protected $keyType = 'string';
+
+    public $incrementing = false;
+
     public function fruits()
     {
         return $this
@@ -24,5 +28,14 @@ class Invoice extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($invoice) {
+            $invoice->id = str()->uuid();
+        });
     }
 }

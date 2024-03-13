@@ -16,6 +16,10 @@ class Fruit extends Model
         'unit'
     ];
 
+    protected $keyType = 'string';
+
+    public $incrementing = false;
+
     public function category()
     {
         return $this->belongsTo(Category::class);
@@ -26,5 +30,14 @@ class Fruit extends Model
         return $this
             ->belongsToMany(Invoice::class, 'fruit_invoice', 'fruit_id', 'invoice_id')
             ->withPivot(['quantity', 'category_name']);
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($fruit) {
+            $fruit->id = str()->uuid();
+        });
     }
 }

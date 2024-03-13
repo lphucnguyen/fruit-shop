@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('fruit_invoice', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBiginteger('invoice_id')->unsigned();
-            $table->unsignedBiginteger('fruit_id')->unsigned();
+            $table->foreignUuid('invoice_id');
+            $table->foreignUuid('fruit_id');
             $table->string('category_name');
             $table->integer('quantity');
 

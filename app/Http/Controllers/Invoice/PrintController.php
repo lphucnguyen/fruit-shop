@@ -8,7 +8,6 @@ use App\Services\Contracts\InvoiceServiceInterface;
 
 class PrintController extends Controller
 {
-
     public function __construct(
         private InvoiceServiceInterface $invoiceService
     ) {
@@ -23,5 +22,4 @@ class PrintController extends Controller
             'invoice' => $invoice->toArray(),
         ]);
     }
-
 }

@@ -30,7 +30,21 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function invoices() {
+    protected $keyType = 'string';
+
+    public $incrementing = false;
+
+    public function invoices()
+    {
         return $this->hasMany(Invoice::class);
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($user) {
+            $user->id = str()->uuid();
+        });
     }
 }

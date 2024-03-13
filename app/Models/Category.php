@@ -9,11 +9,12 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $fillable=[
+    protected $fillable = [
         'name'
     ];
 
-    public function fruits() {
+    public function fruits()
+    {
         return $this->hasMany(Fruit::class);
     }
 }
